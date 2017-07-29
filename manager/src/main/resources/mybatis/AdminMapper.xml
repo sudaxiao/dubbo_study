@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dfire.mapper.AdminMapper">
+    <resultMap id="BaseResultMap" type="com.dfire.entity.User">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="username" property="username" jdbcType="VARCHAR"/>
+        <result column="password" property="password" jdbcType="VARCHAR"/>
+    </resultMap>
+    <select id="check" parameterType="com.dfire.entity.Admin" resultType="java.lang.Integer">
+      SELECT count(*)
+      FROM `admin`
+      WHERE username=#{username,jdbcType=VARCHAR} AND password=#{password,jdbcType=VARCHAR}
+
+    </select>
+</mapper>
