@@ -6,10 +6,7 @@ import com.dfire.service.UserService;
 import org.apache.ibatis.jdbc.Null;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.Iterator;
@@ -36,7 +33,7 @@ public class UserController {
      */
     @RequestMapping("/table")
     public ModelAndView toIndex(){
-        ModelAndView mv=new ModelAndView(" ");
+        ModelAndView mv=new ModelAndView("table");
         List<User> users=userService.selectAll();
         mv.addObject("users",users);
         return mv;
@@ -115,4 +112,5 @@ public class UserController {
         mv.addObject("userResults",userResults);
         return mv;
     }
+
 }
